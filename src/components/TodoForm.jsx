@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function TodoForm({addTodo}) {
     const [inputValue, setInputValue] = useState("");
+    const inputRef = useRef(null)
+
+    useEffect(() => {
+        inputRef.current?.focus();
+    }, [])
     const handleSubmit = (e) => {
         e.preventDefault();
         // const todoText = inputValue.trim();
@@ -13,7 +18,7 @@ export function TodoForm({addTodo}) {
 
     return (
         <form  onSubmit={handleSubmit} className="todo-form">
-            <input value={inputValue} type="text" placeholder="Add your text" onChange={(e) => setInputValue(e.target.value)}/>
+            <input ref={inputRef} value={inputValue} type="text" placeholder="Add your text" onChange={(e) => setInputValue(e.target.value)}/>
             <button type="submit">Add</button>
         </form>
     )

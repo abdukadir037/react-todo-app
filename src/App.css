@@ -18,23 +18,14 @@ body {
 }
 
 
-/* .App {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 50px;
-    background-color: #fff;
-    border-radius: 10px;
-} */
-
 .todo-app {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Full viewport height */
+  height: 90vh;
   padding: 20px;
   box-sizing: border-box;
   background-color: #fff;
+  border-radius: 10px;
 }
 
 /* Scrollable area */
@@ -98,14 +89,6 @@ form button {
     font-size: 18px;
 }
 
-/* .todo-item input {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    border-radius: 50px;
-    accent-color: #eb6816;
-} */
-
 
 .checkbox-container {
     display: inline-block;
@@ -155,11 +138,6 @@ form button {
     display: block;
     color: #fff;
 }
-
-/* .checkbox-container input:checked + .checkmark .check-icon {
-    display: block;
-    color: #fff;
-} */
 
 
 .todo-actions {
@@ -239,20 +217,3 @@ form button {
 .stat-box.not-complete {
   border-left: 4px solid #dc3545;
 }
-
-
-
-/* .checkbox-container input:checked + .checkmark {
-    background-color: #eb6816;
-}
-
-.checkbox-container input:checked + .checkmark::after {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 8px;
-    height: 8px;
-    background-color: #fff;
-    border-radius: 50%;
-} */
