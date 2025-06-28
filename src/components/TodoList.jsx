@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaTrash, FaEdit, FaSave } from "react-icons/fa"
-export function TodoList({todos, onToggle, onDelete, onEdit}) {
+const  TodoList = ({todos, onToggle, onDelete, onEdit}) => {
     const [editId, setEditId]= useState(null);
     const [editValue, setEditValue] = useState("");
 
-    const taskSatus = todos.map(todo => todo.complete);
+    const taskSatus = todos.map(todo => todo.isComplete);
 
     const allComplete = taskSatus.every(status => status === true);
     const anyComplete = taskSatus.some(status => status === true);
@@ -39,7 +39,7 @@ export function TodoList({todos, onToggle, onDelete, onEdit}) {
                 <input type="text" placeholder="Edit" value={editValue} onChange={(e) => setEditValue(e.target.value)} className="edit-input" autoFocus/>
             )  : (
                 <>
-                <span className={`checkmark ${todo.complete ? 'checked' : ''}`}>
+                <span className={`checkmark ${todo.isComplete ? 'checked' : ''}`}>
                     <span className="check-icon color-white">&#10003;</span>
                 </span>
                 <span style={{
@@ -78,3 +78,6 @@ export function TodoList({todos, onToggle, onDelete, onEdit}) {
     </>
     )
 }
+
+
+export default React.memo(TodoList)

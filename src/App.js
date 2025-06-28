@@ -1,7 +1,8 @@
 import { TodoForm } from "./components/TodoForm";
+import TodoList from './components/TodoList'
 import './App.css';
-import { TodoList } from "./components/TodoList";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { Fa0 } from "react-icons/fa6";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -20,14 +21,13 @@ function App() {
     if (hasLoaded) localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos, hasLoaded]);
 
-  const addTodo = (todoText) => {
-    setTodos([...todos, {id: Date.now(), text: todoText, complete: false }]);
-    // setInputValue("");
-  };
+  const addTodo = useCallback((todoText) => {
+    setTodos(todos => [...todos, {id: Date.now(), text: todoText, isComplete: false}])
+  }, [])
 
   const toggleComplete = (id) => {
     setTodos(todos.map(todo => (
-      todo.id === id ? {...todo, complete: !todo.complete } : todo
+      todo.id === id ? {...todo, isComplete: !todo.isComplete } : todo
     )))
   }
 
